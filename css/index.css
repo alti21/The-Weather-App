@@ -1,0 +1,136 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.search__form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 150px 70px;
+}
+.search__field, .search__btn {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    justify-self: center;
+}
+.search__field {
+    align-self: start;
+}
+.search__btn {
+    align-self: center;
+}
+
+.background__mist {
+    background-color: #C9C9C9;
+}
+.mist__container {
+    width: 10%;
+    height: 10%;
+    margin: 0;
+    position: relative;
+    animation: mistMovement 7s linear infinite;
+    opacity: .5;
+}
+.mist__container--2 {
+    top: 30%;
+    width: 10%;
+    height: 10%;
+    margin: 0;
+    position: relative;
+    animation: mistMovement 7s linear infinite;
+    opacity: .5;
+}
+
+.mist {
+    width: 240px;
+    height: 240px;
+    background-color: whitesmoke;
+    -webkit-filter: blur(3.5px);
+    filter: blur(3.5px);
+    border-radius: 105px;
+    display: inline-block;
+    position: absolute;
+}
+.mist__item--1, .mist__item--1-2 {
+    top: 70PX;
+    left: 0;
+    z-index: -1;
+}
+.mist__item--2 {
+    top: 100px;
+    left: 70px;
+}
+.mist__item--3 {
+    top: 0;
+    left: 170px;
+}
+.mist__item--4 {
+    top: 70px;
+    left: 210px;
+}
+.mist__item--5 {
+    top: 10px;
+    left: 70px;
+}
+
+@keyframes mistMovement {
+    from {
+        left: -30%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.results__weather {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 150px);
+}
+.results__weather--info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    z-index: 2;
+}
+
+/*use below clouds with animaiton for cloudy weather*/
+/*
+.mist {
+    width: 350px; height: 120px;
+	background: whitesmoke;
+	border-radius: 100px;
+	position: relative;
+	margin: 150px 50px;
+}
+.mist::after, .mist::before {
+	content: '';
+	position: absolute;
+	background: whitesmoke;
+	z-index: 1;
+}
+.mist::after {
+	width: 100px; height: 100px;
+	top: -50px; left: 50px;
+	border-radius: 100px;
+}
+.mist::before {
+	width: 180px; height: 180px;
+	top: -90px; right: 50px;
+	border-radius: 200px;
+}
+*/
+
+
+
