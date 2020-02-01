@@ -4,8 +4,6 @@ const n = 25;
 console.log(`imported ${Weather} from another module ${n}`);
 //import axios from 'axios';
 
-
-
 const state = {};
 
 const controlWeather = async (cityName) => {

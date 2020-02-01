@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <title>The Weather App</title>
 </head>
@@ -15,21 +16,49 @@
             <input type="submit" value="submit" class="search__btn">
         </form>
 
-        <div class="mist__container">
-            <div class="mist__item--1"></div>
-            <div class="mist__item--2"></div>
-            <div class="mist__item--3"></div>
-            <div class="mist__item--4"></div>
-            <div class="mist__item--5"></div>
+        <div class="mist__container--outer hidden">
+            <div class="mist__container">
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--3 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--5 mist"></div>
+            </div>
+            <div class="mist__container margin-right">
+                <div class="mist__item--5 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--3 mist"></div>
+            </div>
+            <br>
+            <div class="mist__container margin-left">
+                <div class="mist__item--5 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--3 mist"></div>
+            </div>
+            <div class="mist__container margin-left--big">
+                <div class="mist__item--5 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--3 mist"></div>
+            </div>
+            <div class="mist__container margin-right--big">
+                <div class="mist__item--5 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--3 mist"></div>
+            </div>
         </div>
-        <br>
-        <div class="mist__container--2">
-            <div class="mist__item--1-2"></div>
-            <div class="mist__item--2-2"></div>
-            <div class="mist__item--3-2"></div>
-            <div class="mist__item--4-2"></div>
-            <div class="mist__item--5-2"></div>
+
+        <div class="sun hidden">
+            <span class="sun__shine"></span>
         </div>
+
 
         <div class="results__weather">
 
