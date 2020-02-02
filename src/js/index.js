@@ -6,10 +6,10 @@ console.log(`imported ${Weather} from another module ${n}`);
 
 const state = {};
 
-const controlWeather = async (cityName) => {
+const controlWeather = async (cityName, unitType) => {
 //want user to input city into search field, then that city will go in as paramater in next line
     //document.querySelector('.search__form').nodeValue;
-    state.weather = new Weather(cityName);
+    state.weather = new Weather(cityName, unitType);
 
     try
     {
@@ -28,7 +28,7 @@ let test = 'a';
 document.querySelector('form').addEventListener('submit', e => {
    // alert(document.querySelector('.search__field').value);//get value of search field
     e.preventDefault();
-    controlWeather(document.querySelector('.search__field').value);
+    controlWeather(document.querySelector('.search__field').value, document.querySelector('.search__dropDown').options[document.querySelector('.search__dropDown').options.selectedIndex].value);
    // alert(window.location + 'a');
     
 });

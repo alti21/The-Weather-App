@@ -12,7 +12,12 @@
     <div class="container">
 
         <form action="http://localhost:8080/" class="search__form">
-            <input name="test" type="text" class="search__field">
+            <input name="city" type="text" class="search__field" placeholder="Enter city name here">
+            <select name="unit" class="search__dropDown">
+                <option value="metric">Celcuis</option>
+                <option value="imperial">Fahrenheit</option>
+                <option value="">Kelvin</option>
+            </select>
             <input type="submit" value="submit" class="search__btn">
         </form>
 

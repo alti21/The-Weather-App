@@ -5,16 +5,17 @@ console.log('imported module');
 
 export default class Weather 
 {
-    constructor(name)
+    constructor(name, unit)
     {
         this.name = name;
+        this.unit = unit;
     }
 
     async getWeather()
     {
         try 
         {
-            const res = await axios('https://api.openweathermap.org/data/2.5/weather?q=' + this.name + '&appid=fe621362f3067a7385ceb99bd2accef5');
+            const res = await axios('https://api.openweathermap.org/data/2.5/weather?q=' + this.name + '&units=' + this.unit + '&appid=fe621362f3067a7385ceb99bd2accef5');
             console.log(res);
             console.log(res.data);
             this.main = res.data.weather[0].main;
