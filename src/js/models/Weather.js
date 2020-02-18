@@ -24,6 +24,8 @@ export default class Weather
             this.temperature = res.data.main.temp;
             this.temperatureMin = res.data.main.temp_min;
             this.temperatureMax = res.data.main.temp_max;
+            this.temperatureFeel = res.data.main.feels_like;
+            this.cityName = res.data.name;
             //http://openweathermap.org/img/wn/10d@2x.png
         }
         catch(error)

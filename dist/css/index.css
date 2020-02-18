@@ -3,7 +3,6 @@
     padding: 0px;
     box-sizing: border-box;
 }
-
 html, body {
     height: 100%;
     width: 100%;
@@ -16,7 +15,6 @@ html, body {
 .appear {
     display: block;
 }
-
 .container {
     height: 100%;
     width: 100%;
@@ -26,17 +24,37 @@ html, body {
     grid-template-areas: "header header header"
                          "left main right"
                          "7 8 9";
+    gap: 10px 10px;
+}
+@keyframes changeWeather {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .search__form {
     grid-area: header;
     justify-self: center;
     align-self: end;
-    /*display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 150px 70px;*/
+    z-index: 999;
+    font-size: 2rem;
+    background-color: royalblue;
+    padding: 1rem;
+    border-radius: 100px;
+    box-shadow: 5px 5px 5px royalblue;
 }
-
+.search__field, .search__dropDown {
+    font-size: 2rem;
+    border-radius: 10px;
+}
+.search__btn {
+    font-family: inherit;
+    border-radius: 100px;
+    padding: 1rem;
+}
 
 /*******FOR MIST AND HAZE WEATHER********/
 .mist__container--outer {
@@ -44,6 +62,7 @@ html, body {
     width: 90%;
     align-self: start;
     justify-self: center;
+    animation: changeWeather 2s ease-out;
 }
 .background__mist {
     background-color: #C9C9C9;
@@ -77,7 +96,7 @@ html, body {
     display: inline-block;
     position: absolute;
 }
-.mist__item--1, .mist__item--1-2 {
+.mist__item--1 {
     top: 70PX;
     left: 0;
     z-index: -1;
@@ -119,6 +138,9 @@ html, body {
     grid-area: main / main / 8 / 9;
     box-shadow: 50px 50px 30px yellow;
     position: relative;
+    animation: changeWeather 2s ease-out;
+    align-self: center;
+    justify-self: start;
 }
 .sun__shine {
     background: #fcf0a3;
@@ -130,51 +152,75 @@ html, body {
     clip-path: circle(40%);
 }
 
-
-
-
-.results__weather {
-  grid-area: main;
-  z-index: 999;
-  font-size: 3rem;
-  align-self: center;
-  justify-self: center;
+/*******************FOR CLOUDY WEATHER**********************/
+.cloud__container {
+    grid-area: left / left / 7 / main;
+    animation: changeWeather 2s ease-out;
+    animation: cloudMovement 17s linear infinite;
+    position: relative;
 }
-/*
-.results__container {
-    grid-area: base;
-    z-index: 2;
-    align-self: center;
-    justify-self: center;
+.cloudy {
+    position: relative;
+    width: 155px;
+    height: 60px;
+    background: whitesmoke;
+    border-radius: 100px;
+    margin: 50px 10px;
+    transform: scale(180%, 180%);
 }
-*/
-
-/*use below clouds with animaiton for cloudy weather*/
-/*
-.mist {
-    width: 350px; height: 120px;
-	background: whitesmoke;
-	border-radius: 100px;
-	position: relative;
-	margin: 150px 50px;
-}
-.mist::after, .mist::before {
+.cloudy::after, .cloudy::before {
 	content: '';
 	position: absolute;
 	background: whitesmoke;
 	z-index: 1;
 }
-.mist::after {
-	width: 100px; height: 100px;
-	top: -50px; left: 50px;
-	border-radius: 100px;
+.cloudy::after {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+    left: 70px;
+    border-radius: 100px;
 }
-.mist::before {
-	width: 180px; height: 180px;
-	top: -90px; right: 50px;
-	border-radius: 200px;
+.cloudy::before {
+    width: 70px;
+    height: 70px;
+    top: -40px;
+    right: 70px;
+    border-radius: 200px;
 }
-*/
+@keyframes cloudMovement {
+    from {
+        left: -50%;
+    }
+    to {
+        left: 90%;
+    }
+}
 
 
 
+
+/****************WEATHER RESULTS*****************/
+.results__container {
+  grid-area: main;
+  z-index: 999;
+  font-size: 3rem;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+.results__weather--temperature {
+    grid-area: right;
+    z-index: 999;
+    font-size: 1.5rem;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+.city__name {
+    grid-area: left;
+    font-size: 3rem;
+    align-self: center;
+    justify-self: center;
+    z-index: 999;
+}

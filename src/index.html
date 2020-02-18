@@ -12,13 +12,15 @@
     <div class="container">
 
         <form action="http://localhost:8080/" class="search__form">
-            <input name="city" type="text" class="search__field" placeholder="Enter city name here">
-            <select name="unit" class="search__dropDown">
+            <label for="name">City</label>
+            <input id="name" name="city" type="text" class="search__field" placeholder="Enter city name here">
+            <label for="unitType">Unit</label>
+            <select id="unitType" name="unit" class="search__dropDown">
                 <option value="metric">Celcuis</option>
                 <option value="imperial">Fahrenheit</option>
                 <option value="">Kelvin</option>
             </select>
-            <input type="submit" value="submit" class="search__btn">
+            <input type="submit" value="Search" class="search__btn">
         </form>
 
         <div class="mist__container--outer hidden">
@@ -64,13 +66,21 @@
             <span class="sun__shine"></span>
         </div>
 
+        <div class="cloud__container hidden">
+            <div class="cloudy" style="left: 20%; bottom: 30%;"></div>
+            <div class="cloudy"></div>
+            <div class="cloudy" style="left: 80%; bottom: 40%;"></div>
+            <div class="cloudy" style="left: 25%;"></div>
+            <div class="cloudy" style="left: 110%; bottom: 30%;"></div>
+        </div>
 
+<!--
         <div class="results__weather">
 
         </div>
 
     </div>
-    
+    -->
 
   
 </body>
