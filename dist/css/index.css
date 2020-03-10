@@ -9,6 +9,15 @@ html, body {
     overflow-x: hidden;
     font-family: 'Manjari', sans-serif;
 }
+.title {
+    grid-area: header;
+    text-align: center;
+    align-self: center;
+    padding-bottom: 50px;
+    font-size: 5rem;
+    text-shadow: 3px 3px 3px lightskyblue;
+    color: royalblue;
+}
 .hidden {
     display: none;
 }
@@ -54,6 +63,17 @@ html, body {
     font-family: inherit;
     border-radius: 100px;
     padding: 1rem;
+}
+.error_warning {
+    grid-area: main;
+    font-size: 2.5rem;
+    padding: 15px;
+    text-align: center;
+    height: 28%;
+    background-color: lightcoral;
+    color: red;
+    margin: 0 auto;
+    border-radius: 25px;
 }
 
 /*******FOR MIST AND HAZE WEATHER********/
@@ -196,6 +216,24 @@ html, body {
         left: 90%;
     }
 }
+
+/****************FOR SNOW*****************/
+.snow {
+    grid-area: header / header / 7 / 9;
+}
+.snowflake {
+    font-size: 3rem;
+    display: inline-block;
+}
+@keyframes snowMovement {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 90%;
+    }
+}
+
 
 
 

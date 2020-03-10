@@ -5,10 +5,11 @@ console.log('imported module');
 
 export default class Weather 
 {
-    constructor(name, unit)
+    constructor(name, unit, err)
     {
         this.name = name;
         this.unit = unit;
+        this.err = err;
     }
 
     async getWeather()
@@ -26,11 +27,19 @@ export default class Weather
             this.temperatureMax = res.data.main.temp_max;
             this.temperatureFeel = res.data.main.feels_like;
             this.cityName = res.data.name;
+            this.err = false;
             //http://openweathermap.org/img/wn/10d@2x.png
         }
         catch(error)
         {   
-            console.log(error);
+            console.log(error + "TESTING");//IF CITY NAME IS NOT VALID OR NOT IN API
+            this.err = true;
         }
+        console.log(this.err);
+    }
+
+    checkValidity()
+    {
+       // if(this.name)
     }
 };

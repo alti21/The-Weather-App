@@ -6,16 +6,24 @@ console.log(`imported ${Weather} from another module ${n}`);
 
 const state = {};
 
-const controlWeather = async (cityName, unitType) => {
+const controlWeather = async (cityName, unitType, e) => {
 //want user to input city into search field, then that city will go in as paramater in next line
     //document.querySelector('.search__form').nodeValue;
-    state.weather = new Weather(cityName, unitType);
+    state.weather = new Weather(cityName, unitType, e);
 
     try
     {
         await state.weather.getWeather();
 
-        weatherView.renderWeather(state.weather);
+        if(!state.weather.err)
+        {
+            weatherView.renderWeather(state.weather);
+        }
+        else if(state.weather.err)
+        {
+            weatherView.errorWarning();
+        }
+        
     }
     catch(error)
     {
