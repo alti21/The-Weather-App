@@ -1,3 +1,5 @@
+import { elements } from './base';
+
 export const renderWeather = (weather) => {
     //to display the current weather on the UI
     const markup = `
@@ -15,18 +17,18 @@ export const renderWeather = (weather) => {
         ${weather.name}
     </div>
     `;
-    //TODO: FIX THIS: ON CITY CHANGE, ORIGINAL WEATHER DATA SHOULD DISAPPEAR
-    if(document.querySelector('.container').contains(document.querySelector('.results__container')) 
-        && document.querySelector('.container').contains(document.querySelector('.results__weather--temperature'))
-        && document.querySelector('.container').contains(document.querySelector('.city__name')))
+   
+    if(elements.container.contains(document.querySelector('.results__container')) 
+        && elements.container.contains(document.querySelector('.results__weather--temperature'))
+        && elements.container.contains(document.querySelector('.city__name')))
     {
-        document.querySelector('.container').removeChild(document.querySelector('.results__container'));
-        document.querySelector('.container').removeChild(document.querySelector('.results__weather--temperature'));
-        document.querySelector('.container').removeChild(document.querySelector('.city__name'));
+        elements.container.removeChild(document.querySelector('.results__container'));
+        elements.container.removeChild(document.querySelector('.results__weather--temperature'));
+        elements.container.removeChild(document.querySelector('.city__name'));
     }
 
     //document.querySelector('.results__weather').insertAdjacentHTML('afterbegin', markup);
-    document.querySelector('.container').insertAdjacentHTML('beforeend', markup);
+    elements.container.insertAdjacentHTML('beforeend', markup);
 
 
 
@@ -34,37 +36,37 @@ export const renderWeather = (weather) => {
     if(weather.main === 'Haze' || weather.main === 'Mist' || weather.main === 'Smoke')
     {
         //remove css of previous city's weather
-        document.querySelector('.container').className = 'container';
+        elements.container.className = 'container';
         document.querySelector('.mist__container--outer').classList.remove('appear');
         document.querySelector('.cloud__container').classList.remove('appear');
         document.querySelector('.sun').classList.remove('appear');
 
         //add css of new city's weather
-        document.querySelector('.container').classList.add('background__mist');
+        elements.container.classList.add('background__mist');
         document.querySelector('.mist__container--outer').classList.add('appear');
     }
     else if(weather.main === 'Clear')
     {
         //remove css of previous city's weather
-       // document.querySelector('.container').classList.remove('background__mist');
-        document.querySelector('.container').className = 'container';
+       // elements.container.classList.remove('background__mist');
+        elements.container.className = 'container';
         document.querySelector('.mist__container--outer').classList.remove('appear');
         document.querySelector('.cloud__container').classList.remove('appear');
 
         //add css of new city's weather
-        document.querySelector('.container').classList.add('clear-sky');
+        elements.container.classList.add('clear-sky');
         document.querySelector('.sun').classList.add('appear');
 
     }
     else if(weather.main === 'Clouds')
     {
         //remove css of previous city's weather
-        document.querySelector('.container').className = 'container';
+        elements.container.className = 'container';
         document.querySelector('.mist__container--outer').classList.remove('appear');
         document.querySelector('.sun').classList.remove('appear');
 
         //add css of new city's weather
-        document.querySelector('.container').classList.add('clear-sky');
+        elements.container.classList.add('clear-sky');
         document.querySelector('.cloud__container').classList.add('appear');
 
       //  Array.from(document.querySelectorAll('.cloudy')).forEach(cur => cur.classList.add(''))
@@ -76,13 +78,14 @@ export const renderWeather = (weather) => {
     else if(weather.main === 'Snow')
     {
          //remove css of previous city's weather
-        document.querySelector('.container').className = 'container';
+        elements.container.className = 'container';
         document.querySelector('.mist__container--outer').classList.remove('appear');
         document.querySelector('.sun').classList.remove('appear');
         document.querySelector('.cloud__container').classList.remove('appear');
 
         //add css of new city's weather
-        
+        document.querySelector('.snow').classList.add('appear');
+
     }
     //else if()
 }
