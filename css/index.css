@@ -6,7 +6,8 @@
 html, body {
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
+
     font-family: 'Manjari', sans-serif;
 }
 .title {
@@ -220,21 +221,84 @@ html, body {
 /****************FOR SNOW*****************/
 .snow {
     grid-area: header / header / 7 / 9;
+    justify-self: center;
 }
 .snowflake {
     font-size: 3rem;
     display: inline-block;
+    position: relative;
+    color: skyblue;
+    animation: down 3s ease-in-out infinite;
 }
-@keyframes snowMovement {
-    from {
-        top: -50%;
+.snowflake:nth-child(1) {
+    position: relative;
+    top: -150px;
+    right: 350px;
+    animation: snowMovementRight 4s ease-in-out infinite, down 8s ease-in-out infinite;
+}
+.snowflake:nth-child(2) {
+    top: -350px;
+    right: 150px;
+    animation: snowMovementRight 4s ease-in-out infinite, down 8s ease-in-out infinite;
+}
+.snowflake:nth-child(3) {
+    top: 0px;
+    right: -150px;
+    animation: snowMovementLeft 4s ease-in-out infinite, down 8s ease-in-out infinite;
+}
+.snowflake:nth-child(4) {
+    top: -250px;
+    right: -300px;
+    animation: snowMovementLeft 4s ease-in-out infinite, down 8s ease-in-out infinite;
+}
+.snowflake:nth-child(5) {
+    top: -50px;
+    right: -450px;
+    animation: snowMovementLeft 4s ease-in-out infinite, down 8s ease-in-out infinite;
+}
+.snowflake:nth-child(6) {
+    top: -300px;
+    right: 250px;
+    animation: snowMovementRight 4s ease-in-out infinite, down 8s ease-in-out infinite;
+}
+.snowflake:nth-child(7) {
+    top: -400px;
+    right: -200px;
+    animation: snowMovementLeft 4s ease-in-out infinite, down 8s ease-in-out infinite;
+}
+@keyframes snowMovementRight {
+    0% {
+        right: -50%;
     }
+    33% {
+        right: 50%;
+    }
+    66% {
+        right: -50%;
+    }
+    100% {
+        right: 50%;
+    }
+}
+@keyframes snowMovementLeft {
+    0% {
+        left: -50%;
+    }
+    33% {
+        left: 50%;
+    }
+    66% {
+        left: -50%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+@keyframes down {
     to {
-        top: 90%;
+        top: 100%;
     }
 }
-
-
 
 
 
