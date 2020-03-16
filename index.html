@@ -4,10 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
     <title>The Weather App</title>
 </head>
 <body>
     
+    <div class="container">
+        <h1 class="title">Weatherly</h1>
+        <form action="http://localhost:8080/" class="search__form">
+            <label for="name">City</label>
+            <input id="name" name="city" type="text" class="search__field" placeholder="Enter city name here">
+            <label for="unitType">Unit</label>
+            <select id="unitType" name="unit" class="search__dropDown">
+                <option value="metric">Celcuis</option>
+                <option value="imperial">Fahrenheit</option>
+                <option value="">Kelvin</option>
+            </select>
+            <input type="submit" value="Search" class="search__btn">
+        </form>
+
+        <div class="mist__container--outer hidden">
+            <div class="mist__container">
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--3 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--5 mist"></div>
+            </div>
+            <div class="mist__container margin-right">
+                <div class="mist__item--5 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--3 mist"></div>
+            </div>
+            <br>
+            <div class="mist__container margin-left">
+                <div class="mist__item--5 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--3 mist"></div>
+            </div>
+            <div class="mist__container margin-left--big">
+                <div class="mist__item--5 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--3 mist"></div>
+            </div>
+            <div class="mist__container margin-right--big">
+                <div class="mist__item--5 mist"></div>
+                <div class="mist__item--2 mist"></div>
+                <div class="mist__item--1 mist"></div>
+                <div class="mist__item--4 mist"></div>
+                <div class="mist__item--3 mist"></div>
+            </div>
+        </div>
+
+        <div class="sun hidden">
+            <span class="sun__shine"></span>
+        </div>
+
+        <div class="cloud__container hidden">
+            <div class="cloudy" style="left: 20%; bottom: 30%;"></div>
+            <div class="cloudy"></div>
+            <div class="cloudy" style="left: 80%; bottom: 40%;"></div>
+            <div class="cloudy" style="left: 25%;"></div>
+            <div class="cloudy" style="left: 110%; bottom: 30%;"></div>
+        </div>
+
+        <div class="snow hidden">
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❆</div>
+        </div>
+
+
+<!--
+        <div class="results__weather">
+
+        </div>
+
+    </div>
+    -->
 
   
 <script type="text/javascript" src="js/bundle.js"></script></body>
