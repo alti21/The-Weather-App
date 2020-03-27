@@ -315,9 +315,9 @@ html, body {
     grid-area: right;
     z-index: 999;
     font-size: 1.5rem;
-  align-self: center;
-  justify-self: center;
-  text-align: center;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
 }
 .city__name {
     grid-area: left;
@@ -325,4 +325,80 @@ html, body {
     align-self: center;
     justify-self: center;
     z-index: 999;
+}
+
+
+/************************MEDIA QUERIES********************/
+@media screen and (max-width: 960px) {
+    .container {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: 1.2fr 1.2fr repeat(3, 2fr);
+        grid-template-areas: "header header"
+                             "header header"
+                             "leftMain rightMain"
+                             "left right"
+                             "leftBottom rightBottom";
+        gap: 10px 10px;
+    }
+    .error_warning {
+        grid-area: header;
+        align-self: end;
+        height: 20%;
+    }
+    .mist__container--outer {
+        grid-area: leftMain/leftBottom/left/right;
+    }
+    .sun {
+        grid-area: leftMain/leftBottom/left/right;
+    }
+    .cloud__container {
+        grid-area: leftMain/leftBottom/left/right;
+    }
+    .snow {
+        grid-area: leftMain/leftBottom/left/right;
+    }
+    .results__container {
+        grid-area: rightMain;
+    }
+    .results__weather--temperature {
+        grid-area: left;
+    }
+    .city__name {
+        grid-area: leftMain;
+    }
+}
+
+
+
+@media screen and (max-width: 780px) {
+    .container {
+        grid-template-rows: 1.5fr 1.5fr repeat(3, 2fr);
+    }
+    .search__form {
+        grid-area: header;
+        font-size: 1.5rem;
+        padding: .3em;
+        border-radius: 50px;
+    }
+    .search__form > * {
+        
+        text-align: center;
+    }
+    .search__field, .search__dropDown, .search__btn {
+        font-size: inherit;
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }
+    .search__dropDown, .search__btn {
+        margin: 0 auto;
+        
+    }
+    .search__btn {
+        padding: .5rem;
+        border-radius: 20px;
+        display: block;
+    }
 }

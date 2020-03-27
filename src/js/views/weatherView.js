@@ -98,6 +98,7 @@ smoke
 light snow
 rain
 Drizzle - rainy
+Thunderstorm
 */
 
 //TODO: add unit symbol in front of temperature based on unit that user selects
