@@ -7,7 +7,6 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden;
-
     font-family: 'Manjari', sans-serif;
 }
 .title {
@@ -18,6 +17,7 @@ html, body {
     font-size: 5rem;
     text-shadow: 3px 3px 3px lightskyblue;
     color: royalblue;
+    z-index: 999;
 }
 .hidden {
     display: none;
@@ -35,6 +35,10 @@ html, body {
                          "left main right"
                          "7 8 9";
     gap: 10px 10px;
+}
+.start {
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,142,255,1) 50%, rgba(254,244,34,1) 100%); 
 }
 @keyframes changeWeather {
     from {
@@ -381,7 +385,7 @@ html, body {
         grid-area: header;
         font-size: 1.5rem;
         padding: .3em;
-        border-radius: 50px;
+        border-radius: 35px;
     }
     .search__form > * {
         
@@ -400,5 +404,100 @@ html, body {
         padding: .5rem;
         border-radius: 20px;
         display: block;
+    }
+}
+
+
+@media screen and (max-width: 530px) {
+    html,body {
+        overflow-y: scroll;
+    }
+    .container {
+        height: 120vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: 2fr 1.5fr repeat(4, 2fr);
+        grid-template-areas: "header"
+                             "header"
+                             "topMain"
+                             "main1"
+                             "main2"
+                             "bottomMain";
+        gap: 10px 10px;
+       
+    }
+    .title {
+        align-self: start;
+        padding-top: .3em;
+        font-size: 4rem;
+    }
+    .search__form {
+        grid-area: header;
+        font-size: 1.5rem;
+        padding: .3em;
+        border-radius: 35px;
+        width: 200px;
+        height: 170px;
+    }
+    .search__form > * {
+        text-align: center;
+        
+    }
+    .search__form > input {
+        display: block;
+    }
+    #name {
+        width: 70%;
+        margin-bottom: 10px;
+        margin-left: 50px;
+    }
+    .search__form > :nth-child(1) {
+        position: relative;
+        top: 40px;
+    }
+    .search__field, .search__dropDown, .search__btn {
+        font-size: inherit;
+        margin-top: 0em;
+        margin-bottom: .5em;
+        
+    }
+    .search__dropDown, .search__btn {
+        margin: 0 auto;
+        
+    }
+    .search__btn {
+        padding: .5rem;
+        border-radius: 20px;
+        display: block;
+    }
+
+
+
+    .error_warning {
+        grid-area: header;
+        align-self: end;
+        height: 20%;
+    }
+    .mist__container--outer {
+        grid-area: leftMain/leftBottom/left/right;
+    }
+    .sun {
+        grid-area: leftMain/leftBottom/left/right;
+    }
+    .cloud__container {
+        grid-area: topMain/bottomMain/bottomMain/bottomMain;
+    }
+    .snow {
+        grid-area: leftMain/leftBottom/left/right;
+    }
+    .results__container {
+        grid-area: main1;
+    }
+    .results__weather--temperature {
+        grid-area: main2;
+    }
+    .city__name {
+        grid-area: topMain;
     }
 }
