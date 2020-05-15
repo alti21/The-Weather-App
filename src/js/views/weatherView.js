@@ -1,4 +1,6 @@
-import { elements } from './base';
+import { elem } from './base';
+
+
 
 export const renderWeather = (weather) => {
     //to display the current weather on the UI
@@ -6,68 +8,79 @@ export const renderWeather = (weather) => {
     <div class="results__container">
         <div class="results__weather--info">${weather.main}</div>
         <img class="results__weather--info" src=${weather.icon}>
+        <span class="current">${Math.round(weather.temperature)}${unitDisplay(weather.unit)}</span>
     </div>
     <div class="results__weather--temperature">
-        <div>Current temperature: ${weather.temperature}</div>
-        <div>Min temperature: ${weather.temperatureMin}</div>
-        <div>Max temperature: ${weather.temperatureMax}</div>
-        <div>Feels like: ${weather.temperatureFeel}</div>
+        
+        <div>Min<br>${weather.temperatureMin}</div>
+        <div>Max<br>${weather.temperatureMax}</div>
+        <div>Feels like<br>${weather.temperatureFeel}</div>
     </div>
     <div class="city__name">
-        ${weather.name}
+        ${weather.name}, ${weather.country}
     </div>
     `;
-   
-    if(elements.container.contains(document.querySelector('.results__container')) 
-        && elements.container.contains(document.querySelector('.results__weather--temperature'))
-        && elements.container.contains(document.querySelector('.city__name')))
-    {
-        elements.container.removeChild(document.querySelector('.results__container'));
-        elements.container.removeChild(document.querySelector('.results__weather--temperature'));
-        elements.container.removeChild(document.querySelector('.city__name'));
+
+    const weatherObj = {
+        resContainer: document.querySelector('.results__container'),
+        temp: document.querySelector('.results__weather--temperature'),
+        city: document.querySelector('.city__name'),
+        mist: document.querySelector('.mist__container--outer'),
+        cloud: document.querySelector('.cloud__container'),
+        sun: document.querySelector('.sun'),
+        snow: document.querySelector('.snow')
     }
 
-    //document.querySelector('.results__weather').insertAdjacentHTML('afterbegin', markup);
-    elements.container.insertAdjacentHTML('beforeend', markup);
+    if(elem.container.contains(weatherObj.resContainer) 
+        && elem.container.contains(weatherObj.temp)
+        && elem.container.contains(weatherObj.city))
+    {
+        elem.container.removeChild(weatherObj.resContainer);
+        elem.container.removeChild(weatherObj.temp);
+        elem.container.removeChild(weatherObj.city);
+    }//use array with resContainer, temp, city, then iterate over that array and removeChild for each one
 
-
+    elem.container.insertAdjacentHTML('beforeend', markup);
 
     //change background depending on weather
-    if(weather.main === 'Haze' || weather.main === 'Mist' || weather.main === 'Smoke')
+    if(['Haze', 'Mist', 'Smoke'].includes(weather.main))
     {
         //remove css of previous city's weather
-        elements.container.className = 'container';
-        document.querySelector('.mist__container--outer').classList.remove('appear');
-        document.querySelector('.cloud__container').classList.remove('appear');
-        document.querySelector('.sun').classList.remove('appear');
+        elem.container.className = 'container';
+        //weatherObj.mist.classList.remove('appear');//try to make 1 function that can have different
+        weatherObj.cloud.classList.remove('appear');//paremeters to remove these things, so that all of this
+        weatherObj.sun.classList.remove('appear');//can be done in one line or somethings
+        weatherObj.snow.classList.remove('appear');
 
         //add css of new city's weather
-        elements.container.classList.add('background__mist');
-        document.querySelector('.mist__container--outer').classList.add('appear');
+        elem.container.classList.add('background__mist');
+        weatherObj.mist.classList.add('appear');
     }
     else if(weather.main === 'Clear')
     {
         //remove css of previous city's weather
-       // elements.container.classList.remove('background__mist');
-        elements.container.className = 'container';
-        document.querySelector('.mist__container--outer').classList.remove('appear');
-        document.querySelector('.cloud__container').classList.remove('appear');
+       // document.querySelector('.container').classList.remove('background__mist');
+        elem.container.className = 'container';
+        weatherObj.mist.classList.remove('appear');
+        weatherObj.cloud.classList.remove('appear');
+        weatherObj.snow.classList.remove('appear');
 
         //add css of new city's weather
-        elements.container.classList.add('clear-sky');
-        document.querySelector('.sun').classList.add('appear');
+        elem.container.classList.add('clear-sky');
+        weatherObj.sun.classList.add('appear');
 
     }
     else if(weather.main === 'Clouds')
     {
         //remove css of previous city's weather
-        elements.container.className = 'container';
-        document.querySelector('.mist__container--outer').classList.remove('appear');
-        document.querySelector('.sun').classList.remove('appear');
+        elem.container.className = 'container';
+        weatherObj.mist.classList.remove('appear');
+        weatherObj.sun.classList.remove('appear');
+        weatherObj.snow.classList.remove('appear');
 
         //add css of new city's weather
-        elements.container.classList.add('clear-sky');
-        document.querySelector('.cloud__container').classList.add('appear');
+        elem.container.classList.add('clear-sky');
+        weatherObj.cloud.classList.add('appear');
 
       //  Array.from(document.querySelectorAll('.cloudy')).forEach(cur => cur.classList.add(''))
     }
@@ -78,16 +91,24 @@ export const renderWeather = (weather) => {
     else if(weather.main === 'Snow')
     {
          //remove css of previous city's weather
-        elements.container.className = 'container';
-        document.querySelector('.mist__container--outer').classList.remove('appear');
-        document.querySelector('.sun').classList.remove('appear');
-        document.querySelector('.cloud__container').classList.remove('appear');
+        elem.container.className = 'container';
+        weatherObj.mist.classList.remove('appear');
+        weatherObj.sun.classList.remove('appear');
+        weatherObj.cloud.classList.remove('appear');
 
         //add css of new city's weather
-        document.querySelector('.snow').classList.add('appear');
+        weatherObj.snow.classList.add('appear');//////////////////////
 
     }
-    //else if()
+    else if(weather.main === 'Thunderstorm')
+    {
+
+
+        //add css of new city's weather
+        elem.container.className = 'container';
+        elem.container.classList.add('background__mist');
+        weatherObj.cloud.classList.add('appear');
+    }
 }
 //Following is list of possible weather for cities
 /*
@@ -104,6 +125,7 @@ Thunderstorm
 //TODO: add unit symbol in front of temperature based on unit that user selects
 //Add funcitonality for user to save cities
 
+
 export const errorWarning = () => {
     const markup = `
     <div class="error_warning">
@@ -112,9 +134,37 @@ export const errorWarning = () => {
     `;
     document.querySelector('.search__form').insertAdjacentHTML('afterend', markup);
     sleep(2500).then(() => document.querySelector('.error_warning').remove());
-    
 }
 
 const sleep = (time) => {
     return new Promise(resolve => setTimeout(resolve, time));
+}
+
+
+const change = (cl, visibility) => {
+    document.querySelector(cl).classList.remove(visibility);
+}
+
+const unitDisplay = (unitType) => {
+    if(unitType === "metric")
+    {
+        return `°C`;
+    } 
+    else if(unitType === "imperial")
+    {
+        return '°F';
+    }
+    else return ` K`;
+}
+
+//helper functions
+const weatherDisplay = (weatherType) => {
+   // document.querySelector(weatherType).
+}
+
+const removeChild = (parent, child, amount) => {
+    for(let i=0; i < amount; i++)
+    {
+        document.querySelector(parent).removeChild(document.querySelector(child));
+    }
 }

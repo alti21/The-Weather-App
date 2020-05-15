@@ -221,6 +221,27 @@ html, body {
         left: 90%;
     }
 }
+/****************FOR LIGHTNING*****************/
+.lightning {
+    position: relative;
+    top: 35px;
+    left: 50px;
+    width: 30%;
+    height: 100%;
+    background-color: yellow;
+    clip-path: polygon(25% 0%, 81% 0, 45% 100%, 0% 100%);
+}
+.lightning-2 {
+    position: relative;
+    top: 20px;
+    left: 50px;
+    width: 30%;
+    height: 100%;
+    background-color: yellow;
+    clip-path: polygon(25% 0%, 85% 0, 0 100%, 0% 100%);
+}
+
+
 
 /****************FOR SNOW*****************/
 .snow {
@@ -307,6 +328,19 @@ html, body {
 
 
 /****************WEATHER RESULTS*****************/
+.results__weather--info:nth-child(1) {
+    position: relative;
+    right: 100px;
+    top: 20px;
+}
+.results__weather--info:nth-child(2) {
+    position: relative;
+}
+.current {
+    position: relative;
+    bottom: 20px;
+    font-size: 6rem;
+}
 .results__container {
   grid-area: main;
   z-index: 999;
@@ -322,6 +356,10 @@ html, body {
     align-self: center;
     justify-self: center;
     text-align: center;
+    width: 20vw;
+}
+.results__weather--temperature > div {
+    display: inline-block;
 }
 .city__name {
     grid-area: left;
@@ -352,16 +390,7 @@ html, body {
         align-self: end;
         height: 20%;
     }
-    .mist__container--outer {
-        grid-area: leftMain/leftBottom/left/right;
-    }
-    .sun {
-        grid-area: leftMain/leftBottom/left/right;
-    }
-    .cloud__container {
-        grid-area: leftMain/leftBottom/left/right;
-    }
-    .snow {
+    .cloud__container, .sun, .mist__container--outer, .snow {
         grid-area: leftMain/leftBottom/left/right;
     }
     .results__container {
@@ -405,6 +434,10 @@ html, body {
         border-radius: 20px;
         display: block;
     }
+    .current {
+        font-size: 4rem;
+    }
+    
 }
 
 
@@ -425,7 +458,6 @@ html, body {
                              "main2"
                              "bottomMain";
         gap: 10px 10px;
-       
     }
     .title {
         align-self: start;
@@ -460,36 +492,14 @@ html, body {
         font-size: inherit;
         margin-top: 0em;
         margin-bottom: .5em;
-        
     }
-    .search__dropDown, .search__btn {
-        margin: 0 auto;
-        
-    }
-    .search__btn {
-        padding: .5rem;
-        border-radius: 20px;
-        display: block;
-    }
-
-
-
     .error_warning {
         grid-area: header;
         align-self: end;
         height: 20%;
     }
-    .mist__container--outer {
-        grid-area: leftMain/leftBottom/left/right;
-    }
-    .sun {
-        grid-area: leftMain/leftBottom/left/right;
-    }
-    .cloud__container {
+    .cloud__container, .sun, .mist__container--outer, .snow {
         grid-area: topMain/bottomMain/bottomMain/bottomMain;
-    }
-    .snow {
-        grid-area: leftMain/leftBottom/left/right;
     }
     .results__container {
         grid-area: main1;

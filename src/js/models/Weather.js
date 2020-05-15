@@ -28,7 +28,9 @@ export default class Weather
             this.temperatureFeel = res.data.main.feels_like;
             this.cityName = res.data.name;
             this.err = false;
+            this.country = res.data.sys.country;
             //http://openweathermap.org/img/wn/10d@2x.png
+            console.log(this.unit);
         }
         catch(error)
         {   
