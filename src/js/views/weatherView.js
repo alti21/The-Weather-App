@@ -28,7 +28,8 @@ export const renderWeather = (weather) => {
         mist: document.querySelector('.mist__container--outer'),
         cloud: document.querySelector('.cloud__container'),
         sun: document.querySelector('.sun'),
-        snow: document.querySelector('.snow')
+        snow: document.querySelector('.snow'),
+        thunder: document.querySelector('.lightning__container')
     }
 
     if(elem.container.contains(weatherObj.resContainer) 
@@ -51,6 +52,7 @@ export const renderWeather = (weather) => {
         weatherObj.cloud.classList.remove('appear');//paremeters to remove these things, so that all of this
         weatherObj.sun.classList.remove('appear');//can be done in one line or somethings
         weatherObj.snow.classList.remove('appear');
+        weatherObj.thunder.classList.remove('appear');
 
         //add css of new city's weather
         elem.container.classList.add('background__mist');
@@ -64,6 +66,7 @@ export const renderWeather = (weather) => {
         weatherObj.mist.classList.remove('appear');
         weatherObj.cloud.classList.remove('appear');
         weatherObj.snow.classList.remove('appear');
+        weatherObj.thunder.classList.remove('appear');
 
         //add css of new city's weather
         elem.container.classList.add('clear-sky');
@@ -77,10 +80,12 @@ export const renderWeather = (weather) => {
         weatherObj.mist.classList.remove('appear');
         weatherObj.sun.classList.remove('appear');
         weatherObj.snow.classList.remove('appear');
+        weatherObj.thunder.classList.remove('appear');
 
         //add css of new city's weather
         elem.container.classList.add('clear-sky');
         weatherObj.cloud.classList.add('appear');
+        
 
       //  Array.from(document.querySelectorAll('.cloudy')).forEach(cur => cur.classList.add(''))
     }
@@ -95,6 +100,7 @@ export const renderWeather = (weather) => {
         weatherObj.mist.classList.remove('appear');
         weatherObj.sun.classList.remove('appear');
         weatherObj.cloud.classList.remove('appear');
+        weatherObj.thunder.classList.remove('appear');
 
         //add css of new city's weather
         weatherObj.snow.classList.add('appear');//////////////////////
@@ -103,11 +109,18 @@ export const renderWeather = (weather) => {
     else if(weather.main === 'Thunderstorm')
     {
 
+        //remove css of previous city's weather
+        elem.container.className = 'container';
+        weatherObj.mist.classList.remove('appear');
+        weatherObj.sun.classList.remove('appear');
+        weatherObj.cloud.classList.remove('appear');
+        weatherObj.snow.classList.remove('appear');
 
         //add css of new city's weather
         elem.container.className = 'container';
         elem.container.classList.add('background__mist');
         weatherObj.cloud.classList.add('appear');
+        weatherObj.thunder.classList.add('appear');//or remove hidden?
     }
 }
 //Following is list of possible weather for cities
