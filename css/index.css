@@ -33,7 +33,7 @@ html, body {
     grid-template-rows: repeat(3, 2fr);
     grid-template-areas: "header header header"
                          "left main right"
-                         "7 8 9";
+                         "bottomLeft bottomMain bottomRight";
     gap: 10px 10px;
 }
 .start {
@@ -244,7 +244,9 @@ html, body {
 
 
 /****************FOR RAIN*****************/
+.rain {
 
+}
 
 
 /****************FOR SNOW*****************/
@@ -364,6 +366,7 @@ html, body {
 }
 .results__weather--temperature > div {
     display: inline-block;
+    margin: 10px;
 }
 .city__name {
     grid-area: left;
@@ -371,6 +374,14 @@ html, body {
     align-self: center;
     justify-self: center;
     z-index: 999;
+}
+.wind {
+    grid-area: bottomLeft;
+    align-self: center;
+    justify-self: center;
+    z-index: 999;
+    font-size: 3rem;
+    text-align: center;
 }
 
 
@@ -407,7 +418,6 @@ html, body {
         grid-area: leftMain;
     }
 }
-
 
 
 @media screen and (max-width: 780px) {
