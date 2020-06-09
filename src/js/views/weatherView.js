@@ -11,7 +11,6 @@ export const renderWeather = (weather) => {
         <span class="current">${Math.round(weather.temperature)}${unitDisplay(weather.unit)}</span>
     </div>
     <div class="results__weather--temperature">
-        
         <div>Min<br>${weather.temperatureMin}</div>
         <div>Max<br>${weather.temperatureMax}</div>
         <div>Feels like<br>${weather.temperatureFeel}</div>
@@ -19,6 +18,13 @@ export const renderWeather = (weather) => {
     <div class="city__name">
         ${weather.name}, ${weather.country}
     </div>
+    
+    <div class="wind">
+        Wind 
+        <div>${weather.wind.speed} m/s at ${weather.wind.deg}°</div>
+        <i class="wi wi-wind towards-${weather.wind.deg}-deg"><i>
+    </div>
+    
     `;
 
     const weatherObj = {
@@ -39,7 +45,7 @@ export const renderWeather = (weather) => {
         elem.container.removeChild(weatherObj.resContainer);
         elem.container.removeChild(weatherObj.temp);
         elem.container.removeChild(weatherObj.city);
-    }//use array with resContainer, temp, city, then iterate over that array and removeChild for each one
+    }
 
     elem.container.insertAdjacentHTML('beforeend', markup);
 
@@ -49,8 +55,8 @@ export const renderWeather = (weather) => {
         //remove css of previous city's weather
         elem.container.className = 'container';
         //weatherObj.mist.classList.remove('appear');//try to make 1 function that can have different
-        weatherObj.cloud.classList.remove('appear');//paremeters to remove these things, so that all of this
-        weatherObj.sun.classList.remove('appear');//can be done in one line or somethings
+        weatherObj.cloud.classList.remove('appear');
+        weatherObj.sun.classList.remove('appear');
         weatherObj.snow.classList.remove('appear');
         weatherObj.thunder.classList.remove('appear');
 
@@ -61,7 +67,6 @@ export const renderWeather = (weather) => {
     else if(weather.main === 'Clear')
     {
         //remove css of previous city's weather
-       // document.querySelector('.container').classList.remove('background__mist');
         elem.container.className = 'container';
         weatherObj.mist.classList.remove('appear');
         weatherObj.cloud.classList.remove('appear');
@@ -85,9 +90,7 @@ export const renderWeather = (weather) => {
         //add css of new city's weather
         elem.container.classList.add('clear-sky');
         weatherObj.cloud.classList.add('appear');
-        
 
-      //  Array.from(document.querySelectorAll('.cloudy')).forEach(cur => cur.classList.add(''))
     }
     else if(weather.main === 'Rain')
     {
@@ -103,7 +106,7 @@ export const renderWeather = (weather) => {
         weatherObj.thunder.classList.remove('appear');
 
         //add css of new city's weather
-        weatherObj.snow.classList.add('appear');//////////////////////
+        weatherObj.snow.classList.add('appear');
 
     }
     else if(weather.main === 'Thunderstorm')
@@ -120,7 +123,7 @@ export const renderWeather = (weather) => {
         elem.container.className = 'container';
         elem.container.classList.add('background__mist');
         weatherObj.cloud.classList.add('appear');
-        weatherObj.thunder.classList.add('appear');//or remove hidden?
+        weatherObj.thunder.classList.add('appear');
     }
 }
 //Following is list of possible weather for cities
@@ -137,7 +140,7 @@ Thunderstorm
 
 //TODO: add unit symbol in front of temperature based on unit that user selects
 //Add funcitonality for user to save cities
-
+//add funcitonality if weather is hot, put warm symbol, if cold, put cold symbol
 
 export const errorWarning = () => {
     const markup = `

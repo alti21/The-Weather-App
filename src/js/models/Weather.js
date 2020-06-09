@@ -29,6 +29,7 @@ export default class Weather
             this.cityName = res.data.name;
             this.err = false;
             this.country = res.data.sys.country;
+            this.wind = res.data.wind;
             //http://openweathermap.org/img/wn/10d@2x.png
             console.log(this.unit);
         }
