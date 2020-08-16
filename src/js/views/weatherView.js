@@ -31,6 +31,7 @@ export const renderWeather = (weather) => {
         resContainer: document.querySelector('.results__container'),
         temp: document.querySelector('.results__weather--temperature'),
         city: document.querySelector('.city__name'),
+        wind: document.querySelector('.wind'),
         mist: document.querySelector('.mist__container--outer'),
         cloud: document.querySelector('.cloud__container'),
         sun: document.querySelector('.sun'),
@@ -40,11 +41,13 @@ export const renderWeather = (weather) => {
 
     if(elem.container.contains(weatherObj.resContainer) 
         && elem.container.contains(weatherObj.temp)
-        && elem.container.contains(weatherObj.city))
+        && elem.container.contains(weatherObj.city)
+        && elem.container.contains(weatherObj.wind))
     {
         elem.container.removeChild(weatherObj.resContainer);
         elem.container.removeChild(weatherObj.temp);
         elem.container.removeChild(weatherObj.city);
+        elem.container.removeChild(weatherObj.wind);
     }
 
     elem.container.insertAdjacentHTML('beforeend', markup);
