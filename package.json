@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "prod": "webpack-dev-server --mode development --open",
+    "postinstall": "npm run start",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
     "axios": "^0.19.0",
+    "express": "^4.17.1",
     "live-server": "^1.2.1"
   },
   "devDependencies": {
