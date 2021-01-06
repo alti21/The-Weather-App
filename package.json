@@ -20,7 +20,7 @@
   "homepage": "https://github.com/alti21/The-Weather-App#readme",
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "live-server": "^1.2.1"
   },
